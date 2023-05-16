@@ -16,4 +16,12 @@ new_list.insert_front("taco")
 new_list.insert_front(56)
 new_list.insert_front(100)
 new_list.insert_front(-1)
+new_list.insert_end("🐈‍⬛")
 print(new_list)
+
+print(new_list.find("taco"))
+print(new_list.find("banana"))
+
+new_list = LinkedList()
+
+print(new_list.find("taco"))

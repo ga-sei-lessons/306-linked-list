@@ -72,3 +72,42 @@ class LinkedList:
 
         # increment the size of the list
         self.size += 1
+
+    def insert_end(self, data):
+        """
+        Instance method that inserts a new node using with the given data at the end of the list
+        @param data The data value to insert at the end of the list.
+        """
+        new_node = Node(data)
+        # if this is the first node in the list, set to be both head and tail
+        if len(self) == 0:
+            self.tail = new_node
+            self.head = self.tail
+        # otherwise set the current tail's next to be the new node and replace the tail
+        else:
+            # update the tail's next value for iteration
+            self.tail.next = new_node
+            # update the list's tail for future insertion
+            self.tail = new_node
+
+        self.size += 1
+
+    def find(self, data): 
+        """
+        Instance method that searches the list for the given data and returns when the first instance of it is found.
+        @param data The data to search the list for
+        @return The node of data if it is found, None if it is not.
+        """
+        # iterate the list using a while loop
+        current_node = self.head
+        while current_node:
+            # if we encounter the data we are looking for, return the new node immediately
+            if current_node.data == data: 
+                return current_node
+            
+            # move iteration forward
+            current_node = current_node.next
+        
+        # if iteration stops, we need to return None (not found)
+        return None
+
